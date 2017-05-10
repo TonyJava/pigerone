@@ -25,3 +25,5 @@ class  C1 implements Serializable
         this.bigDecimal = bigDecimal;
     }
 }
+
+//测试回滚
