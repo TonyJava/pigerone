@@ -1,5 +1,6 @@
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.*;
 
 /**
  * Created by pigercc.liang on 2017/5/6.
@@ -7,8 +8,25 @@ import java.math.BigDecimal;
 public class Tester {
 
     public static void main(String[] args) {
-        C1 c1=new C1();
-        System.out.println(c1.getBigDecimal());
+
+        long currentTime =System.currentTimeMillis();
+
+        List<Long> trackIds =new ArrayList<Long>();
+
+        trackIds.add(5L);
+        trackIds.add(3L);
+        trackIds.add(4L);
+
+
+
+        System.out.println(trackIds);
+
+        Collections.sort(trackIds,Collections.<Long>reverseOrder());
+        System.out.println(trackIds);
+
+        Calendar calendar =Calendar.getInstance();
+        calendar.setTime(new Date(currentTime));
+        System.out.println(calendar.get(Calendar.HOUR_OF_DAY));
     }
 }
 
