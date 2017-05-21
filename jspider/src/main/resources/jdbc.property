@@ -1,0 +1,4 @@
+driver=com.mysql.jdbc.Driver
+url=jdbc:mysql://btsha.com:3306/jspider?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+username=root
+password=#yourpasswd
