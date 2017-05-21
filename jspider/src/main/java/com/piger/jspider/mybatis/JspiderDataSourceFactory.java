@@ -4,6 +4,8 @@ import org.apache.ibatis.datasource.pooled.PooledDataSourceFactory;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import javax.sql.DataSource;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Properties;
 
 /**
@@ -11,13 +13,10 @@ import java.util.Properties;
  */
 public class JspiderDataSourceFactory  {
 
-    public static DataSource getDataSource()
-    {
+    public static DataSource getDataSource() throws Exception {
+        //TODO 账号密码放到类里，同时不提交到github上
         Properties properties = new Properties();
-        properties.setProperty("driver", "com.mysql.jdbc.Driver");
-        properties.setProperty("url", "jdbc:mysql://btsha.com:3306/jspider?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull");
-        properties.setProperty("username", "root");
-        properties.setProperty("password", "ali20175480");
+        properties.load(JspiderDataSourceFactory.class.getClassLoader().getResourceAsStream("jdbc.property"));
         PooledDataSourceFactory pooledDataSourceFactory = new PooledDataSourceFactory();
         pooledDataSourceFactory.setProperties(properties);
         return pooledDataSourceFactory.getDataSource();

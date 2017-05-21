@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 public class MybatisTest {
 
     @Test
-    public void testSelect()
+    public void testSelect() throws Exception
     {
         DataSource dataSource = JspiderDataSourceFactory.getDataSource();
         TransactionFactory transactionFactory = new JdbcTransactionFactory();
