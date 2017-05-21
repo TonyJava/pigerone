@@ -7,3 +7,5 @@
 *.iml
 out
 gen
+jdbc.property
+/jspider/src/main/resources/jdbc.property
