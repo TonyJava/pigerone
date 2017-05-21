@@ -45,7 +45,10 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
         <!-- spring 全家桶 -->
         <dependency>
             <groupId>org.springframework</groupId>

@@ -1,0 +1,1 @@
+insert into jspider.tb_detail(title, id_code, video_id, big_image, score, user_wanted, user_watched, user_owned) VALUE('title','id_code','1212','bigimage_url',2.1,100,20,18)

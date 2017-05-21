@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by pigercc.liang on 2017/5/20.
  */
-public class DetailPage implements Serializable {
+public class Detail implements Serializable {
 
     private long id;
 
@@ -142,5 +142,10 @@ public class DetailPage implements Serializable {
 
     public void setStars(List<Star> stars) {
         this.stars = stars;
+    }
+
+    @Override
+    public String toString() {
+        return id+"\t"+title+"\t"+idCode+"\t"+videoId+"\t"+userWanted;
     }
 }
