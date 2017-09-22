@@ -13,6 +13,7 @@
         <module>piger-one-spring</module>
         <module>jspider</module>
         <module>piger-core</module>
+        <module>spring-boot</module>
     </modules>
     <properties>
         <piger.version>1.0-SNAPSHOT</piger.version>
@@ -28,7 +29,13 @@
 
     <dependencyManagement>
         <dependencies>
-
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>1.5.1.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>

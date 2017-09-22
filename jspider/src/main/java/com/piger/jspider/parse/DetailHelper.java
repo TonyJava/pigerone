@@ -3,7 +3,7 @@ package com.piger.jspider.parse;
 import com.piger.jspider.model.Detail;
 import com.piger.jspider.model.Star;
 import com.piger.jspider.model.Tag;
-import com.piger.util.JsoupUtil;
+import com.piger.jspider.util.JsoupUtil;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;

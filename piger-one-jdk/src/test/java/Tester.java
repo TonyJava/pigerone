@@ -9,38 +9,36 @@ public class Tester {
 
     public static void main(String[] args) {
 
-        long currentTime =System.currentTimeMillis();
-
-        List<Long> trackIds =new ArrayList<Long>();
-
-        trackIds.add(5L);
-        trackIds.add(3L);
-        trackIds.add(4L);
-
-
-
-        System.out.println(trackIds);
-
-        Collections.sort(trackIds,Collections.<Long>reverseOrder());
-        System.out.println(trackIds);
-
-        Calendar calendar =Calendar.getInstance();
-        calendar.setTime(new Date(currentTime));
-        System.out.println(calendar.get(Calendar.HOUR_OF_DAY));
+       C1 c1 =new C1();
+       C2 c2 =new C2();
+       c2.setId(123L);
+       c1.setId(c2.getId());
     }
 }
 
 
 class  C1 implements Serializable
 {
-    private BigDecimal bigDecimal;
+    private long id;
 
-    public BigDecimal getBigDecimal() {
-        return bigDecimal;
+    public long getId() {
+        return id;
     }
 
-    public void setBigDecimal(BigDecimal bigDecimal) {
-        this.bigDecimal = bigDecimal;
+    public void setId(long id) {
+        this.id = id;
+    }
+}
+class C2
+{
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
 

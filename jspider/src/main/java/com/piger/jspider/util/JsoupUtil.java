@@ -1,4 +1,4 @@
-package com.piger.util;
+package com.piger.jspider.util;
 
 import java.io.IOException;
 

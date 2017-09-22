@@ -1,10 +1,8 @@
 import com.piger.jspider.mapper.DetailMapper;
 import com.piger.jspider.model.Detail;
-import com.piger.jspider.model.Star;
-import com.piger.jspider.model.Tag;
 import com.piger.jspider.mybatis.JspiderDataSourceFactory;
 import com.piger.jspider.parse.DetailHelper;
-import com.piger.util.JsoupUtil;
+import com.piger.jspider.util.JsoupUtil;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
@@ -13,16 +11,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.util.StringUtils;
 
 import javax.sql.DataSource;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by pigercc.liang on 2017/5/20.
@@ -43,6 +34,12 @@ public class JsoupTest {
     }
 
     @Test
+    public void print() throws Exception
+    {
+        printHtml("http://www.j12lib.com/cn/vl_genre.php?&mode=&g=arna&page=166");
+    }
+
+    @Test
     public void getDetail() throws Exception {
 
         DataSource dataSource = JspiderDataSourceFactory.getDataSource();
@@ -57,7 +54,7 @@ public class JsoupTest {
         try {
             DetailMapper mapper = session.getMapper(DetailMapper.class);
 
-            for(String hashUrl:new String[]{"javlijbr2e" ,"javlikj5yy","javlikjg64"})
+            for(String hashUrl:new String[]{"javliklvqe"})
             {
                 String url = "http://www.j12lib.com/cn/?v="+hashUrl;
                 Document doc = JsoupUtil.parse(url);

@@ -1,6 +1,9 @@
 import com.piger.jspider.mapper.DetailMapper;
+import com.piger.jspider.mapper.TbDetailMapper;
 import com.piger.jspider.model.Detail;
+import com.piger.jspider.model.TbDetail;
 import com.piger.jspider.mybatis.JspiderDataSourceFactory;
+import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
@@ -9,7 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.junit.Test;
-
+import java.io.InputStream;
 import javax.sql.DataSource;
 
 /**
@@ -18,7 +21,7 @@ import javax.sql.DataSource;
 public class MybatisTest {
 
     @Test
-    public void testSelect() throws Exception
+    public void testFromCode() throws Exception
     {
         DataSource dataSource = JspiderDataSourceFactory.getDataSource();
         TransactionFactory transactionFactory = new JdbcTransactionFactory();
@@ -37,5 +40,22 @@ public class MybatisTest {
             session.close();
         }
 
+    }
+
+    @Test
+    public void testFromXml() throws Exception
+    {
+        InputStream inputStream = Resources.getResourceAsStream("mybatis/mybatis-config.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try
+        {
+            TbDetailMapper tbDetailMapper =session.getMapper(TbDetailMapper.class);
+            TbDetail tbDetail =tbDetailMapper.selectByPrimaryKey(1L);
+            System.out.println(tbDetail.getTitle());
+        }finally {
+            session.close();
+        }
     }
 }
